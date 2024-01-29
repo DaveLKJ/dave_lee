@@ -5,16 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Whack-A-Mole</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="mole.js"></script>
+    
   </head>
   <body>
-    <!-- <div class="background-image-container">
-        <img src="./Assets/grass.jpeg" alt="Grass background">
-    </div> -->
     <h1>Whack-A-Mole</h1>
-    <div id="time">time</div>
-    <div id="score">score</div>
-    <div id="base"></div>
-    <button class="start">START!</button>
+
+    <div id="flex-container">
+      <div id="time">Time: 60</div>
+      <div id="score">Score: 0</div>
+    </div>
+
+    <!-- the grid set up is done in JS -->
+    <div id="base">
+      <div id="0"></div>
+      <div id="1"></div>
+      <div id="2"></div>
+      <div id="3"></div>
+      <div id="4"></div>
+      <div id="5"></div>
+      <div id="6"></div>
+      <div id="7"></div>
+      <div id="8"></div>
+    </div>
+    
+    <button id="startButton">Start Game</button>
+
+    <script src="./JS/mole.js"></script>
   </body>
 </html>
