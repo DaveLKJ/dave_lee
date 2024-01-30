@@ -1,10 +1,16 @@
-let popUpGrid;
-
-let timer = 60;
-let score = 0;
+let popMoleGrid;
+let gameOver;
+let timer;
+let score;
+let timerDisplay;
+let scoreDisplay;
 
 window.onload = () => {
-    setGame();
+    gameOver = true;
+
+    timerDisplay = document.getElementById('timer');
+    scoreDisplay = document.getElementById('score');
+    document.getElementById('startButton').addEventListener("click", setGame);
 }
 
 function getRandomGrid() {
@@ -13,20 +19,60 @@ function getRandomGrid() {
 }
 
 function popMole() {
-
-    if (popUpGrid) {
-        popUpGrid.removeChild(popUpGrid.firstChild);
+    if (popMoleGrid) {
+        popMoleGrid.removeChild(popMoleGrid.firstChild);
     }
 
     let mole = document.createElement("img");
     mole.src = './Assets/mole.png';
 
     let num = getRandomGrid();
-    popUpGrid = document.getElementById(num);
-    popUpGrid.appendChild(mole);
+    popMoleGrid = document.getElementById(num);
+    popMoleGrid.appendChild(mole);
+}
+
+function popBomb() {
+    if (popBombGrid) {
+        popBombGrid.removeChild(popBombGrid.firstChild);
+    }
+
+    let bomb = document.createElement("img");
+    bomb.src = './Assets/bomb.png';
+
+    let num = getRandomGrid();
+    popBombGrid = document.getElementById(num);
+    popBombGrid.appendChild(bomb);
+}
+
+function selectGrid() {
+    if (this == popMoleGrid) {
+        score += 1;
+        scoreDisplay.textContent = `Score: ${score}`;
+    }
 }
 
 function setGame() {
-    
-    setInterval(popMole, 2000);
+    for (let i=0; i<9; i++) {
+        let grid = document.getElementById(i)
+        grid.addEventListener("click", selectGrid);
+    }
+
+    gameOver = false;
+    timer = 30;
+    timerDisplay.textContent = `Timer: ${timer}`;
+    score = 0;
+    scoreDisplay.textContent = `Score: ${score}`;
+
+    gameTimer = setInterval(() => {
+        timer--;
+        timerDisplay.textContent = `Timer: ${timer}`;
+
+        if (timer === 0) {
+            gameOver = true;
+            clearInterval(gameTimer);
+            alert(`Game over! Your score is ${score}`);
+        }
+    }, 1000);
+
+    setInterval(popMole, 1000);
 }
