@@ -1,0 +1,67 @@
+body {
+    background-color: grey;
+    background-image: url('./Assets/grass.jpg');
+    background-size: cover;
+    background-repeat: no-repeat
+}
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+    color: black;
+    text-shadow: 1px 1px 3px white;
+}
+
+#flex-container {
+    width: 540px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+
+    font-size: 30px;
+    background-color: bisque;
+    border-radius: 20px;
+}
+
+#base {
+    width: 540px;
+    height: 540px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    
+    background-image: url('./Assets/soil.jpeg');
+    background-size: cover;
+    border-style: solid;
+    border-color: white;
+    border-radius: 20px;
+}
+
+#startButton {
+    margin: 0;
+    position: absolute;
+    left: 40%;
+    right: 40%;
+    border: 10px black;
+}
+
+#base div {
+    /* sets size of each tile */
+    width: 180px;
+    height: 180px;
+
+    /* sets size of hole image in tile*/
+    background-image: url('./Assets/hole.png');
+    background-size:160px 80px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#base div img {
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: transparent;
+}
