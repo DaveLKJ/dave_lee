@@ -1,4 +1,5 @@
 let popMoleGrid;
+let popBombGrid;
 let gameOver;
 let timer;
 let score;
@@ -40,6 +41,9 @@ function popBomb() {
     bomb.src = './Assets/bomb.png';
 
     let num = getRandomGrid();
+    // if (popMoleGrid.id = num) {
+    //     return;
+    // }
     popBombGrid = document.getElementById(num);
     popBombGrid.appendChild(bomb);
 }
@@ -64,15 +68,16 @@ function setGame() {
     scoreDisplay.textContent = `Score: ${score}`;
 
     gameTimer = setInterval(() => {
+        moleTimer = setInterval(popMole, 1000);
+        bombTimer = setInterval(popBomb, 1200);
         timer--;
         timerDisplay.textContent = `Timer: ${timer}`;
 
         if (timer === 0) {
             gameOver = true;
             clearInterval(gameTimer);
+            clearInterval(moleTimer);
             alert(`Game over! Your score is ${score}`);
         }
     }, 1000);
-
-    setInterval(popMole, 1000);
 }
