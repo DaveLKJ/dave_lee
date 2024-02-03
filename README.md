@@ -1,4 +1,6 @@
 ## Whack-A-Mole
+Click on the link to begin the game.
+https://davelkj.github.io/whack-a-mole/
 
 ## Goal
 Get as many points as possible by hitting on the moles as many times as you can.
