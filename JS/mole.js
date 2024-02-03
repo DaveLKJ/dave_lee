@@ -100,7 +100,7 @@ function setGame() {
         timer--;
         timerDisplay.textContent = `Timer: ${timer}`;
 
-        if (timer === 0) {
+        if (timer <= 0) {
             gameOver = true;
             clearInterval(gameTimer);
             clearInterval(moleTimer);
