@@ -78,6 +78,7 @@ function selectGrid() {
         clearInterval(gameTimer);
         clearInterval(moleTimer);
         clearInterval(bombTimer);
+        gameOver = true;
     }
 }
 
@@ -108,6 +109,6 @@ function setGame() {
         }
     }, 1000);
 
-    moleTimer = setInterval(popMole, 2000);
-    bombTimer = setInterval(popBomb, 1500);
+    moleTimer = setInterval(popMole, 1000);
+    bombTimer = setInterval(popBomb, 1300);
 }
